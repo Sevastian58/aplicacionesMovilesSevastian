@@ -1,7 +1,5 @@
 package com.cibertec.aplicacionesmovilesiiantony.service.impl;
 
-import com.cibertec.aplicacionesmovilesiiantony.jwt.CustomerDetailsService;
-import com.cibertec.aplicacionesmovilesiiantony.jwt.JwtUtil;
 import com.cibertec.aplicacionesmovilesiiantony.model.Rol;
 import com.cibertec.aplicacionesmovilesiiantony.model.User;
 import com.cibertec.aplicacionesmovilesiiantony.repository.UserRepository;
@@ -9,9 +7,6 @@ import com.cibertec.aplicacionesmovilesiiantony.service.abstraccion.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -25,12 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    public AuthenticationManager authenticationManager;
-    @Autowired
-    private CustomerDetailsService customerDetailsService;
-    @Autowired
-    private JwtUtil jwtUtil;
+
 
     @Override
     public List<User> listAll() {
@@ -44,17 +34,18 @@ public class UserServiceImpl implements UserService {
         System.out.println("password: "+ requestMap.get("password"));
         Map<String, String> salida = new HashMap<>();
         try{
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(requestMap.get("email"), requestMap.get("password"))
-            );
+            User user = userRepository.iniciarSesion(requestMap.get("email"));
+            if(!Objects.isNull(user)){
+                if(requestMap.get("password").equals(user.getPassword())){
 
-            if(authentication.isAuthenticated()){
-                salida.put("token", jwtUtil.generateToken(customerDetailsService.getUserDetail().getEmail(),
-                        customerDetailsService.getUserDetail().getRol().getDescription()));
-                salida.put("idUsuario", String.valueOf(customerDetailsService.getUserDetail().getId()));
-                return  ResponseEntity.ok(salida);
+                    return ResponseEntity.ok(true);
+                }
+                else{
+                    return ResponseEntity.badRequest().body("Password incorrecto");
+                }
+            }else{
+                return ResponseEntity.badRequest().body("Usuario no existe");
             }
-
 
         }catch (Exception e){
             e.printStackTrace();
@@ -137,6 +128,16 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         return ResponseEntity.badRequest().body("algo salio mal");
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void deleteForId(Long id) {
+         userRepository.deleteById(id);
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap){

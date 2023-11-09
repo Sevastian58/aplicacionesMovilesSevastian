@@ -68,4 +68,35 @@ public class UserController {
 
         return ResponseEntity.badRequest().body("Algo salio mal");
     }
+
+
+    @GetMapping  ("/find/{id}")
+    public ResponseEntity<?> findById(@PathVariable("id") Long id){
+        User user;
+        try{
+           user = servicio.findById(id);
+           if(user!=null){
+               return ResponseEntity.ok(user);
+           }
+           else{
+               return ResponseEntity.ok("Usuario no encontrado");
+           }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.badRequest().body("Algo salio mal");
+    }
+
+    @DeleteMapping ("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+        try{
+            servicio.deleteForId(id);
+            return ResponseEntity.ok("Usuario Eliminado");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.badRequest().body("Algo salio mal");
+    }
 }

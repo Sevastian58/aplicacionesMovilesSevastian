@@ -2,9 +2,7 @@ C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\Aplicac
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\User.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\service\abstraccion\RolService.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\repository\UserRepository.java
-C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\jwt\SecurityConfig.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\AplicacionesMovilesIiAntonyApplication.java
-C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\jwt\JwtUtil.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\mapper\RolMapperImpl.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\mapper\UserMapperImpl.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\service\abstraccion\UserService.java
@@ -13,9 +11,7 @@ C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\Aplicac
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\controller\UserController.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\Rol.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\repository\RolRepository.java
-C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\jwt\CustomerDetailsService.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\mapper\DTORol.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\service\impl\RolServiceImpl.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\model\mapper\DTOUser.java
-C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\jwt\JwtFilter.java
 C:\Users\sevas\OneDrive\Escritorio\Proyectos\AplicacionesMovilesIIAntony\AplicacionesMovilesIIAntony\src\main\java\com\cibertec\aplicacionesmovilesiiantony\controller\RolController.java

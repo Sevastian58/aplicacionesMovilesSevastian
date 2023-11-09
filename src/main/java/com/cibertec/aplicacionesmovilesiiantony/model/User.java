@@ -23,12 +23,7 @@ public class User {
     private String last_name;
     private String email;
     private String password;
-    /*
-    @OneToMany(mappedBy = "user_registration", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @JsonManagedReference
-    @JsonIgnore
-    private List<Property> property;
-*/
+
     @ManyToOne
     @JoinColumn(name="rol_id")
     private Rol rol;

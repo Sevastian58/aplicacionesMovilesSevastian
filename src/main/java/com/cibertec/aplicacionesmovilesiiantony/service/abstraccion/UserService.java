@@ -12,5 +12,7 @@ public interface UserService {
     ResponseEntity<String> signUp(Map<String, String> requestMap);
     ResponseEntity<?> updatePassword(Map<String, String> requestMap);
     ResponseEntity<?> updateUser(Map<String, String> requestMap);
+    User findById(Long id);
+    void deleteForId(Long id);
 
 }
