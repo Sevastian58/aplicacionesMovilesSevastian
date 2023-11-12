@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("password: "+ requestMap.get("password"));
         Map<String, String> salida = new HashMap<>();
         try{
-            User user = userRepository.iniciarSesion(requestMap.get("email"));
+            User user = userRepository.iniciarSesion(requestMap.get("login"));
             if(!Objects.isNull(user)){
                 if(requestMap.get("password").equals(user.getPassword())){
 
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("registro interno de un usario");
         try{
             if(validateSignUpMap(requestMap)){
-                User user = userRepository.iniciarSesion(requestMap.get("email"));
+                User user = userRepository.iniciarSesion(requestMap.get("login"));
                 if(Objects.isNull(user)){
                     requestMap.put("id", "0");
                     userRepository.save(getUserFromMap(requestMap));
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<?> updatePassword(Map<String, String> requestMap) {
         try{
-                User user = userRepository.iniciarSesion(requestMap.get("email"));
+                User user = userRepository.iniciarSesion(requestMap.get("login"));
                 if(!Objects.isNull(user)){
                     if(requestMap.get("password").equals(user.getPassword())){
 
@@ -113,7 +113,7 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<?> updateUser(Map<String, String> requestMap) {
         try{
             if(validateSignUpMap(requestMap)){
-                User user = userRepository.iniciarSesion(requestMap.get("email"));
+                User user = userRepository.iniciarSesion(requestMap.get("login"));
                 if(!Objects.isNull(user)){
                     userRepository.save(getUserFromMap(requestMap));
                     return ResponseEntity.ok().body("Usuario modificado");
@@ -131,12 +131,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Long id) {
+    public User findById(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteForId(Long id) {
+    public void deleteForId(Integer id) {
          userRepository.deleteById(id);
     }
 
@@ -154,12 +154,15 @@ public class UserServiceImpl implements UserService {
     private User getUserFromMap(Map<String, String> requestMap){
         User user = new User();
 
-        user.setId(Long.parseLong(requestMap.get("id")));
-        System.out.println("El codigo de usuario es " + user.getId());
-        user.setName(requestMap.get("name"));
-        user.setLast_name(requestMap.get("last_name"));
+        user.setCodigo(Integer.parseInt(requestMap.get("codigo")));
+        System.out.println("El codigo de usuario es " + user.getCodigo());
+        user.setNombre(requestMap.get("nombre"));
+        user.setApellido(requestMap.get("apellido"));
+        user.setDni(requestMap.get("dni"));
+        user.setLogin(requestMap.get("login"));
         user.setPassword(requestMap.get("password"));
-        user.setEmail(requestMap.get("email"));
+        user.setCorreo(requestMap.get("correo"));
+        user.setSexo(requestMap.get("sexo"));
 
 
 

@@ -1,5 +1,6 @@
 package com.cibertec.aplicacionesmovilesiiantony.controller;
 
+import com.cibertec.aplicacionesmovilesiiantony.model.Rol;
 import com.cibertec.aplicacionesmovilesiiantony.model.User;
 import com.cibertec.aplicacionesmovilesiiantony.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +72,7 @@ public class UserController {
 
 
     @GetMapping  ("/find/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") Long id){
+    public ResponseEntity<?> findById(@PathVariable("id") Integer id){
         User user;
         try{
            user = servicio.findById(id);
@@ -89,7 +90,7 @@ public class UserController {
     }
 
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         try{
             servicio.deleteForId(id);
             return ResponseEntity.ok("Usuario Eliminado");

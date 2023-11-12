@@ -18,11 +18,14 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String last_name;
-    private String email;
+    private Integer codigo;
+    private String nombre;
+    private String apellido;
+    private String correo;
     private String password;
+    private String dni;
+    private String login;
+    private String sexo;
 
     @ManyToOne
     @JoinColumn(name="rol_id")

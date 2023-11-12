@@ -26,4 +26,6 @@ public class Rol {
     @JsonIgnore
     @JsonManagedReference
     private List<User> listUser;
+
+
 }
