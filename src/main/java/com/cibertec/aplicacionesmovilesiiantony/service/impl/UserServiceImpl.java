@@ -61,8 +61,9 @@ public class UserServiceImpl implements UserService {
             if(validateSignUpMap(requestMap)){
                 User user = userRepository.iniciarSesion(requestMap.get("login"));
                 if(Objects.isNull(user)){
-                    requestMap.put("id", "0");
-                    userRepository.save(getUserFromMap(requestMap));
+                    requestMap.put("codigo", "0");
+                    Object obj = userRepository.save(getUserFromMap(requestMap));
+                    System.out.println(obj);
                     return ResponseEntity.ok().body("Usuario registrado");
                 }else{
                     return ResponseEntity.badRequest().body("Usuario ya existe");
@@ -141,8 +142,8 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap){
-        if( requestMap.containsKey("name") && requestMap.containsKey("last_name")
-                && requestMap.containsKey("password") && requestMap.containsKey("email")
+        if( requestMap.containsKey("nombre") && requestMap.containsKey("apellido")
+                && requestMap.containsKey("password") && requestMap.containsKey("correo")
                 && requestMap.containsKey("rol_id")){
             return true;
         }
