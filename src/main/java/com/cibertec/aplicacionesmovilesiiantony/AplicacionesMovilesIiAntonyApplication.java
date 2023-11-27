@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 @EntityScan(basePackages = "com.cibertec.aplicacionesmovilesiiantony.model")
 
-public class AplicacionesMovilesIiAntonyApplication extends WebMvcConfigurer{
+public class AplicacionesMovilesIiAntonyApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(AplicacionesMovilesIiAntonyApplication.class, args);
